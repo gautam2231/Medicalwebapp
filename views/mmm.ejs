@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+    <style>
+        * {
+            margin: 0px;
+            padding: 0px;
+
+        }
+
+        body {
+            background-image: url('https://i.pinimg.com/736x/4e/1f/df/4e1fdfb8a7eef2adf6c6b8e33f2f00e6.jpg');
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+            height: 100vh;
+            width: 100vw;
+        }
+
+        h3 {
+            color: black;
+            padding: 20px;
+            text-align: center;
+        }
+
+        .container {
+            display: flex;
+            flex-direction: column;
+            width: 50%;
+            height: 60%;
+            justify-content: center;
+        }
+
+        .hello {
+            display: flex;
+            height: 70%;
+            background-color: transparent;
+            align-items: center;
+            justify-content: center;
+            padding: 15px;
+
+        }
+
+        .day {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .jj {
+            height: 30%;
+            width: 65%;
+            display: flex;
+            justify-content: end;
+            align-items: center;
+        }
+
+        .ko {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-around;
+            height: 30%;
+        }
+
+        .b {
+            display: flex;
+            height: 50%;
+            width: 50%;
+            justify-content: center;
+            align-items: center;
+            border-radius: 15px;
+            border: 2px solid black;
+            background-color: grey;
+        }
+
+        a {
+            text-decoration: none;
+            font-size: 20px;
+            font-family: sans-serif;
+            color: black;
+        }
+
+        .b:hover {
+            cursor: pointer;
+        }
+
+        h1 {
+            font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+        }
+
+        button {
+            background-color: transparent;
+            border: none;
+
+        }
+
+        @media screen and (min-width: 480px) {
+            .day{
+                flex-direction: row;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <h3>You are used this web to contact with CU medical facility .You can forward your message to medical team</h3>
+    <div class="hello">
+        <div class="container">
+            <div class="ko">
+                <div class="day">
+                    <h1>UID :</h1>
+                    <button>
+                        <h2>
+                            <%= info.UID %>
+                        </h2>
+                    </button>
+
+                </div>
+                <div class="day">
+                    <h1>Message : </h1>
+                    <button>
+                        <h2>
+                            <%= info.Message %>
+                        </h2>
+                    </button>
+
+                </div>
+
+                <!-- DAY
+            DATE
+            OPEN TIME
+            CLOSE TIME
+            STATUS -->
+
+
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

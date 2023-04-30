@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Medical staff</title>
+    <style>
+        * {
+            margin: 0px;
+            padding: 0px;
+
+        }
+
+        .k {
+            background-image: url('https://thumbs.dreamstime.com/b/medicine-doctor-stethoscope-touching-medical-icons-network-medicine-doctor-stethoscope-touching-icons-medical-network-111489030.jpg');
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+            height: 100vh;
+            width: 100vw;
+
+        }
+
+        body {
+            color: #fff;
+
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        .container {
+            padding: 3%;
+            display: flex;
+            flex-direction: row;
+        }
+
+        .contact-right {
+            display: flex;
+            width: 80%;
+            justify-content: center;
+
+        }
+
+        .d {
+            color: white;
+            margin-top: 15px;
+            padding: 5px;
+            width: 100px;
+            height: 50px;
+            background: #ff004f;
+            border-radius: 15px;
+            transition: transform 0.5s;
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+            width: 50%;
+            align-items: center;
+        }
+
+        form input,
+        form textarea {
+            width: 60%;
+            border: 0;
+            outline: none;
+            background: #262626;
+            padding: 15px;
+            margin: 15px 0;
+            color: #fff;
+            font-size: 18px;
+            border-radius: 6px;
+        }
+
+        form .d {
+            padding: 14px 16px;
+            margin-top: 20px;
+            cursor: pointer;
+        }
+
+        .contact-left {
+            display: flex;
+            width: 20%;
+            justify-content: end;
+        }
+
+        .d2 {
+            color: white;
+            margin-top: 15px;
+            padding: 5px;
+            width: 80%;
+            height: 20%;
+            background: #ff004f;
+            border-radius: 15px;
+            transition: transform 0.5s;
+        }
+
+        .d2:hover {
+            cursor: pointer;
+            transform: translateY(-5px);
+        }
+
+        .d:hover {
+            cursor: pointer;
+            transform: translateY(-5px);
+
+        }
+
+        h2 {
+            display: flex;
+            color: black;
+            width: 30vw;
+            justify-content: center;
+            background-color: rgb(161, 247, 247);
+            border-radius: 15px;
+        }
+
+        h3 {
+            background-color: black;
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+
+        .o {
+            font-size: 15px;
+            color: white;
+            text-decoration: none;
+            
+        }
+
+        #h {
+            padding: 250px 0;
+        }
+
+        .contact {
+            display: flex;
+            width: 100%;
+            justify-content: center;
+        }
+
+        .o:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+
+<body>
+
+    <h3>You are used this web to contact with CU medical facility .You can forward your message to medical team</h3>
+    <div class='k'>
+        <div class="container">
+            <div class="contact-right">
+                <form name="submit-to-google-sheet">
+                    <h2>LOGIN FOR STUDENT</h2>
+                    <input type="text" name="Name" placeholder="Enter your name" required>
+                    <input type="email" name="Email" placeholder="Enter your Email" required>
+                    <button type="submit" class="d"><a class='o' href="/3.html">submit</a>
+                    </button>
+                </form>
+            </div>
+            <div class="contact-left">
+                <button type="submit" class="d2
+                    "><a class='o' href="/2.html">LOGIN FOR STAFF</a></button>
+            </div>
+        </div>
+    </div>
+    </div>
+</body>
+
+</html>

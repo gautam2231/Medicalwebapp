@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+    <style>
+        *{
+            margin: 0px;
+            padding: 0px;
+            
+        }
+        body{
+            background-image: url('https://img.freepik.com/free-photo/flat-lay-health-still-life-arrangement-with-copy-space_23-2148854064.jpg');
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+            height: 100vh;
+            width: 100vw;
+        }
+        h3{
+            color: black;
+            padding: 20px;
+            text-align: center;
+        }
+        .container{
+            display: flex;
+            flex-direction: column;
+            width: 50%;
+            height: 60%;
+            justify-content: center;
+        }
+        .hello{
+            display: flex;
+            background-color: transparent;
+            justify-content: end;
+
+        }
+        .day{
+            display: flex;
+            flex-direction: row;
+        }
+        .jj{
+            height: 30%;
+            width: 65%;
+            display: flex;
+            justify-content: end;
+            align-items: center;
+        }
+        .ko{
+            display: flex;
+            flex-direction: column;
+            justify-content: space-around;
+            height: 80%;
+        }
+        .b{
+            display: flex;
+            height: 50%;
+            width: 50%;
+            justify-content: center;
+            align-items: center;
+            border-radius: 15px;
+            border: 2px solid black;
+            background-color: grey;
+        }
+        a{
+            text-decoration: none;
+            font-size: 20px;
+            font-family: sans-serif;
+            color: black;
+        }
+        .b:hover{
+            cursor: pointer;
+        }
+        h2{
+            font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+        }
+        button{
+            background-color: transparent;
+            border: none;
+
+        }
+
+    </style>
+</head>
+<body>
+    <h3>You are used this web to contact with CU medical facility .You can forward your message to medical team</h3>
+    <div class="hello">
+    <div class="container">
+        <div class="ko">
+            <%   for(var a = 0;a<info.length;a++){    %>
+            <div class="day">
+                <h2>DAY : </h2>
+                <button>
+                    <%= info[a].day %>
+                </button>
+
+            </div>
+            <div class="day">
+                <h2>DATE : </h2>
+                <button>
+                    <%= info[a].date %>
+                </button>
+
+            </div>
+            <div class="day">
+                <h2>OPEN TIME : </h2>
+                <button>
+                    <%= info[a].open_time %>
+                </button>
+
+            </div>
+            <div class="day">
+                <h2>CLOSE TIME : </h2>
+                <button>
+                    <%= info[a].close_time %>
+                </button>
+
+            </div>
+            <div class="day">
+                <h2>STATUS : </h2>
+                <button>
+                    <%= info[a].status %>
+
+                </button>
+            </div>
+            <%     }       %>
+
+            <!-- DAY
+        DATE
+        OPEN TIME
+        CLOSE TIME
+        STATUS -->
+
+
+        </div>
+        <div class="jj">
+            <button class = 'b'><a href="/3.html">BACK</a></button>
+        </div>
+    </div>
+</div>
+</body>
+</html>

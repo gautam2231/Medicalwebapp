@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Medical staff contact</title>
+    <style>
+        * {
+            margin: 0px;
+            padding: 0px;
+        }
+        body{
+            background-image: url('https://images.pexels.com/photos/5863398/pexels-photo-5863398.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2');
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+            height: auto;
+            width: 100vw;
+        }
+
+        h3 {
+            background-color: black;
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+
+        .container {
+            padding: 10px 10%;
+            margin: 10px;
+        }
+
+        .contact-right {
+            display: flex;
+            width: 100%;
+            justify-content: center;
+
+        }
+
+        .d {
+            color: white;
+            margin-top: 15px;
+            padding: 5px;
+            width: 100px;
+            height: 50px;
+            background: #ff004f;
+            border-radius: 15px;
+            transition: transform 0.5s;
+        }
+
+        .d1 {
+            color: white;
+            margin-top: 15px;
+            padding: 5px;
+            width: 300px;
+            height: 50px;
+            background: #ff004f;
+            border-radius: 15px;
+            transition: transform 0.5s;
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+            width: 500px;
+            align-items: center;
+        }
+
+        form input,
+        form textarea {
+            height: 10px;
+            width: 100%;
+            border: 0;
+            outline: none;
+            background: #262626;
+            padding: 15px;
+            margin: 15px 0;
+            color: #fff;
+            font-size: 18px;
+            border-radius: 6px;
+        }
+
+        .container {
+            display: flex;
+            flex-direction: row;
+        }
+
+        form .d {
+            font-size: 18px;
+            cursor: pointer;
+        }
+
+        .d:hover {
+            cursor: pointer;
+            transform: translateY(-5px);
+        }
+
+        .d1:hover {
+            cursor: pointer;
+            transform: translateY(-5px);
+
+        }
+
+        .l {
+            text-align: center;
+            font-size: 30px;
+            font-family: sans-serif;
+        }
+
+        table,
+        th,
+        td {
+            border: 5px solid black;
+            height: 45px;
+            align-items: center;
+        }
+
+        td {
+            font-size: 20px;
+            padding: 10px;
+        }
+
+        th {
+            background-color: grey;
+            color: white;
+        }
+        td{
+            backdrop-filter: blur(8px);
+        }
+
+        .l {
+            color: black;
+            font-size: 20px;
+            text-decoration: none;
+            text-decoration: underline;
+        }
+
+        .t {
+            display: flex;
+            justify-content: center;
+
+        }
+        form textarea{
+            height: 20%;
+        }
+        h2{
+            text-decoration: underline;
+        }
+    </style>
+</head>
+
+<body>
+    <h3>Through this website You can Upload today schedule of hospital and you can reply a student query </h3>
+    <div class="container">
+        <div class="contact-right">
+            <form action="/4.html" method="post">
+                <h2>UPLOAD TODAY STATUS </h2>
+                <input type="DAY" name="day" placeholder="ENTER DAY" required>
+                <input type="date" name="date" placeholder="ENTER DATE" required>
+                <input type="time" name="open_time" placeholder="ENTER OPEN TIMMINGS" required>
+                <input type="time" name="close_time" placeholder="ENTER CLOSE TIMMINGS" required>
+                <input type="text" name="status" placeholder="ENTER DOCTOR STATUS AVAILABLE OR NOT" required>
+                <button type="submit" class="d">SUBMIT</button>
+                <button class='d1'><a class='l' href="#darsh">Reply to student query</a></button>
+            </form>
+        </div>
+    </div>
+    <br>
+    <h2 class='l'>STUDENT ISSUE</h2>
+    <br>
+    <div class='t'>
+        <br>
+        <table style="width:90%">
+            <tr>
+                <th style="width:10%">S.NO.</th>
+                <th style="width:20%">UID</th>
+                <th style="width:20%">NAME</th>
+                <th style="width:20%">ISSUE</th>
+                <th style="width:20%">STATUS</th>
+
+            </tr>
+            <tbody id="table_body">
+
+
+
+            </tbody>
+
+        </table>
+
+    </div>
+
+    <div id="darsh">
+        <div class = 'container'>
+        <div class = 'contact-right'>
+        <form action="/aditya" method="post">
+            <h2>RESPONSE </h2>
+            <input type="text" name="UID" placeholder="ENTER STUDENT UID" required>
+            <textarea name="Message" id="" cols="30" rows="10" placeholder="ENTER YOUR RESPONSE"></textarea>
+            <button type="submit" class="d">SUBMIT</button>
+        </form>
+
+    </div>
+</div>
+</div>
+    <script>
+        let p = fetch("/findall");
+        p.then((data) => {
+            return data.json();
+        }).then((objectData) => {
+            console.log(objectData[0].title);
+            let tabledata = ""
+            let count = 0;
+            objectData.map((values) => {
+                count++;
+                tabledata += ` <tr>
+          <td>${count}</td>
+          <td>${values.UID}</td>
+          <td>${values.Name}</td>
+          <td>${values.Message}</td>
+          <td>
+            <select complaint_id="${values._id}">
+              <option>Pending</option>
+              <option ${values.Status == 'Solved' ? "selected" : ""}>Solved</option>
+            </select>
+          </td>
+        </tr>`
+            });
+            document.getElementById("table_body").innerHTML = tabledata;
+
+            let select = document.getElementsByTagName('select')
+
+            for (let i = 0; i < select.length; i++) {
+                select[i].addEventListener('change', (e) => {
+                    let complaint_id = e.target.getAttribute('complaint_id')
+                    let new_status = e.target.value
+                    fetch('update/' + complaint_id + '/' + new_status)
+                })
+            }
+
+        })
+
+
+    </script>
+</body>
+
+</html>
